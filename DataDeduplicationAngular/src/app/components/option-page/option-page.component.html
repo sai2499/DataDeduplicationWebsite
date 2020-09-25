@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="'/'">Sentinal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a [routerLink]="'/mainpage'" class="nav-link">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="card">
+  <div class="card-header bg-dark text-light">
+    <b>Hello, {{name | uppercase}}</b>
+  </div>
+  <div class="card-body">
+    <div class="list-group list-group-flush">
+      <button class="list-group-item list-group-item-action" (click)="filepage()">Files</button>
+      <button class="list-group-item list-group-item-action" (click)="updatepage()">Update File</button>
+      <button class="list-group-item list-group-item-action" (click)="displayAllChuck()">Chunks</button>
+      <button class="list-group-item list-group-item-action" (click)="chuckcount()">Chunks Count</button>
+      <button class="list-group-item list-group-item-action" (click)="deleteAccount()">Delete Account</button>
+      <button class="list-group-item list-group-item-action" (click)="logoutUser()">Logout</button>
+    </div>
+  </div>
+</div>

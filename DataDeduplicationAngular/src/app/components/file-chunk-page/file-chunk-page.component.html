@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card mt-2 mx-2 border-dark">
+      <div class="card-header bg-dark text-light">
+        <b>Chunks Table</b>
+      </div>
+      <div class="card-body">
+        <div class="table1">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ShaId</th>
+                <th scope="col">Rolling Hash</th>
+                <th scope="col">Sha 256</th>
+                <th scope="col">ChunkSize</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let chunks of chunkData">
+                <td>{{chunks.shaId}}</td>
+                <td>{{chunks.rollinghash}}</td>
+                <td>{{chunks.valueSha}}</td>
+                <td>{{chunks.chuckSize}}kb</td>
+              </tr>            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

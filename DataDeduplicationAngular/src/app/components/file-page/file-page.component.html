@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="'/'">Sentinal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="oi oi-menu"></span> Menu
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a [routerLink]="'/logout'" class="nav-link">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container topcheck">   
+  <div #alert class="alert alert-success alert-dismissible fade show" *ngIf="showAlert" style="margin-top:20px; margin-left:10px; margin-right: 10px;" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <a class="alert-link" *ngIf="showUpload">{{ uploadMsg }}</a>
+    <a class="alert-link" *ngIf="showDelete">{{ deleteMsg }}</a>
+  </div>
+  <div class="card mt-1 mx-2 border-dark">
+    <div class="card-header bg-dark text-light">
+      <b>File Details</b>
+      <span style="float: right;">
+        <i class="fa fa-file-audio-o"><input class="fa fa-file-text" type="file" (change)="onSelectFile($event)"></i>
+        <button class="btn btn-success btn-sm" (click)="uploadFile()">Upload</button>  
+      </span>
+    </div>
+    <div class="card-body">
+      <div class="table1">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">FileID</th>
+              <th scope="col">Filename</th>
+              <th scope="col">Date</th>
+              <th scope="col">Size</th>
+              <th scope="col">Chunks</th>
+              <th scope="col">Delete</th>
+              <th scope="col">Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let file of filedets">
+              <td>{{file.fileid}}</td>
+              <td>{{file.filename}}</td>
+              <td>{{file.filedate| date| uppercase}}</td>
+              <td>{{file.filesize}}Kb</td>
+              <td><button class="btn btn-primary" style="float:center;" (click)="fileChuckData(file.fileid)">Chunks</button></td>
+              <td><button class="btn btn-danger" (click)="deleteFileData(file.fileid)">Delete</button></td>
+              <td><button class="btn btn-success" (click)="downloadFileData(file.fileid)">Download</button></td>
+            </tr> 
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>    
+</div>
+
+  
+  
